@@ -1,4 +1,12 @@
 # xiaoma
+nginx：反向代理、托管 Vue3 前端 dist 静态资源
+frontend（可选，也可直接 Nginx 托管静态文件）
+springboot 后端 (JRE17)：RAG 主业务服务
+mysql:8.0：业务数据、用户、知识库记录
+redis:7：缓存、会话、向量检索缓存、限流
+milvus:2.5：向量数据库
+ollama：承载 Qwen Embedding、LLM 大模型
+rerank-api：独立 Reranker 重排序服务（Qwen-Rerank）
 全本地模型部署
 需配备显存 8G 及以上 GPU 服务器，显卡性能越高，问答响应速度越快。后端对接本地推理服务，数据内网闭环，隐私安全。
 方案 2：接入第三方大模型

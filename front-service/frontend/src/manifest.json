@@ -1,0 +1,42 @@
+{
+  // 应用名称
+  "name": "xiaoma",
+  // 小程序 AppID，未申请时留空
+  "appid": "",
+  // 应用描述
+  "description": "邮箱验证码注册示例",
+  // 版本名称
+  "versionName": "1.0.0",
+  // 版本号（数字）
+  "versionCode": "100",
+  // 不转换 px 为 rpx
+  "transformPx": false,
+  // H5 平台配置
+  "h5": {
+    // H5 页面标题
+    "title": "xiaoma",
+    // 使用 hash 路由模式
+    "router": { "mode": "hash" },
+    // 开发服务器端口
+    "devServer": { "port": 5173 }
+  },
+  // 微信小程序平台配置
+  "mp-weixin": {
+    // 没有小程序 AppID 时留空，微信开发者工具导入时选“测试号”
+    "appid": "",
+    "setting": {
+      // 生成到 project.config.json：开发期不校验 http://localhost 合法域名
+      "urlCheck": false,
+      // 开启 ES6 转 ES5
+      "es6": true,
+      // 上传代码时压缩
+      "minified": true
+    },
+    // 启用全局组件自动引用
+    "usingComponents": true
+  },
+  // 关闭 uni 统计
+  "uniStatistics": { "enable": false },
+  // 使用 Vue 3
+  "vueVersion": "3"
+}

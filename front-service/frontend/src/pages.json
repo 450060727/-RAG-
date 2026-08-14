@@ -1,0 +1,45 @@
+{
+  // 页面路由列表
+  "pages": [
+    // 首页：登录/注册入口
+    { "path": "pages/index/index", "style": { "navigationBarTitleText": "首页" } },
+    // 智能问答页
+    { "path": "pages/chat/chat", "style": { "navigationBarTitleText": "智能问答" } },
+    // 个人资料页
+    { "path": "pages/profile/profile", "style": { "navigationBarTitleText": "我的" } },
+    // 登录页
+    { "path": "pages/login/login", "style": { "navigationBarTitleText": "登录" } },
+    // 注册页
+    { "path": "pages/register/register", "style": { "navigationBarTitleText": "注册" } },
+    // 重置密码页
+    { "path": "pages/reset-password/reset-password", "style": { "navigationBarTitleText": "重置密码" } },
+    // 修改密码页
+    { "path": "pages/change-password/change-password", "style": { "navigationBarTitleText": "修改密码" } }
+  ],
+  // 全局默认页面样式
+  "globalStyle": {
+    // 导航栏标题颜色
+    "navigationBarTextStyle": "black",
+    // 默认导航栏标题
+    "navigationBarTitleText": "xiaoma",
+    // 导航栏背景色
+    "navigationBarBackgroundColor": "#FFFFFF",
+    // 页面背景色
+    "backgroundColor": "#F5F5F5"
+  },
+  // tabBar 不带图标：H5 与微信小程序均允许省略 iconPath，纯文字 tab
+  "tabBar": {
+    // 默认文字颜色
+    "color": "#7A7E83",
+    // 选中文字颜色
+    "selectedColor": "#07C160",
+    // tabBar 背景色
+    "backgroundColor": "#FFFFFF",
+    // tab 列表
+    "list": [
+      { "pagePath": "pages/index/index", "text": "首页" },
+      { "pagePath": "pages/chat/chat", "text": "问答" },
+      { "pagePath": "pages/profile/profile", "text": "我的" }
+    ]
+  }
+}

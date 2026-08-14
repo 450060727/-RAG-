@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Log4j2 统一日志配置（被前后台服务通过 classpath 复用）。
+  输出目标：控制台 + 应用日志滚动文件 + 错误日志滚动文件。
+  日志路径可通过 -Dlog.path=/var/log/xiaoma 或环境变量覆盖；默认当前目录 logs/。
+-->
+<Configuration status="WARN">
+  <Properties>
+    <!-- 日志输出根目录：优先读取系统属性 log.path，缺省使用项目根目录 logs -->
+    <Property name="LOG_PATH">${sys:log.path:-./logs}</Property>
+    <!-- 应用名称：通过 log4j2.system.properties 或 -Dapp.name 区分前台/后台，默认 xiaoma -->
+    <Property name="APP_NAME">${sys:app.name:-xiaoma}</Property>
+    <!-- 日志格式：时间 线程 级别  logger - 消息 -->
+    <Property name="PATTERN">%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n</Property>
+  </Properties>
+
+  <Appenders>
+    <!-- 控制台输出：开发/容器环境直接查看 -->
+    <Console name="Console" target="SYSTEM_OUT">
+      <PatternLayout pattern="${PATTERN}" />
+    </Console>
+
+    <!-- 应用全量日志：按天 + 按 100MB 滚动，最多保留 30 个历史文件 -->
+    <RollingFile name="AppFile"
+                 fileName="${LOG_PATH}/${APP_NAME}-app.log"
+                 filePattern="${LOG_PATH}/${APP_NAME}-app-%d{yyyy-MM-dd}-%i.log.gz">
+      <PatternLayout pattern="${PATTERN}" />
+      <Policies>
+        <TimeBasedTriggeringPolicy interval="1" />
+        <SizeBasedTriggeringPolicy size="100MB" />
+      </Policies>
+      <DefaultRolloverStrategy max="30" />
+    </RollingFile>
+
+    <!-- 错误日志：仅记录 ERROR 及以上级别，便于快速定位故障 -->
+    <RollingFile name="ErrorFile"
+                 fileName="${LOG_PATH}/${APP_NAME}-error.log"
+                 filePattern="${LOG_PATH}/${APP_NAME}-error-%d{yyyy-MM-dd}-%i.log.gz">
+      <ThresholdFilter level="ERROR" onMatch="ACCEPT" onMismatch="DENY" />
+      <PatternLayout pattern="${PATTERN}" />
+      <Policies>
+        <TimeBasedTriggeringPolicy interval="1" />
+        <SizeBasedTriggeringPolicy size="100MB" />
+      </Policies>
+      <DefaultRolloverStrategy max="30" />
+    </RollingFile>
+  </Appenders>
+
+  <Loggers>
+    <!-- 根 logger：INFO 及以上输出到控制台、应用文件、错误文件 -->
+    <Root level="INFO">
+      <AppenderRef ref="Console" />
+      <AppenderRef ref="AppFile" />
+      <AppenderRef ref="ErrorFile" />
+    </Root>
+
+    <!-- 业务包日志级别：可根据需要调整为 DEBUG 排查问题 -->
+    <Logger name="com.xiaoma.server" level="INFO" />
+
+    <!-- MyBatis Mapper SQL 调试：仅输出到控制台，不进入文件避免日志膨胀 -->
+    <Logger name="com.xiaoma.server.mapper" level="DEBUG" additivity="false">
+      <AppenderRef ref="Console" />
+    </Logger>
+  </Loggers>
+</Configuration>

@@ -1,0 +1,1 @@
+import{s as t}from"./index-CeWPE5Fk.js";function d(){return t({url:"/admin/depts",method:"GET"})}function u(e){return t({url:"/admin/depts",method:"POST",data:e})}function a(e,r){return t({url:`/admin/depts/${e}`,method:"PUT",data:r})}function o(e){return t({url:`/admin/depts/${e}`,method:"DELETE"})}export{u as c,o as d,d as g,a as u};

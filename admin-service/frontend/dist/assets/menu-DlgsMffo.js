@@ -1,0 +1,1 @@
+import{s as n}from"./index-CeWPE5Fk.js";function r(){return n({url:"/admin/menus",method:"GET"})}function m(e){return n({url:"/admin/menus",method:"POST",data:e})}function a(e,u){return n({url:`/admin/menus/${e}`,method:"PUT",data:u})}function d(e){return n({url:`/admin/menus/${e}`,method:"DELETE"})}export{m as c,d,r as g,a as u};

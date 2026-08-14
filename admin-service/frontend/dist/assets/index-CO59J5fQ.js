@@ -1,0 +1,1 @@
+import{c as t,a as n,o as a}from"./index-CeWPE5Fk.js";const s={__name:"index",setup(l){return(o,e)=>(a(),t("div",null,[...e[0]||(e[0]=[n("h2",null,"首页",-1),n("p",null,"欢迎登录 后台管理系统",-1)])]))}};export{s as default};

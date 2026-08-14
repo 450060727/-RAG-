@@ -1,0 +1,31 @@
+2026-07-27 10:41:39.311 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.3.Final
+2026-07-27 10:41:39.451 [main] INFO  com.xiaoma.server.ServerApplication - Starting ServerApplication using Java 23.0.1 with PID 27428 (C:\Users\59373\Desktop\前端学习\vue3\xiaoma\front-service\backend\target\classes started by 59373 in C:\Users\59373\Desktop\前端学习\vue3\xiaoma\front-service\backend)
+2026-07-27 10:41:39.453 [main] INFO  com.xiaoma.server.ServerApplication - No active profile set, falling back to 1 default profile: "default"
+2026-07-27 10:41:41.123 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-07-27 10:41:41.129 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-07-27 10:41:41.179 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 24 ms. Found 0 Redis repository interfaces.
+2026-07-27 10:41:42.436 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port 8081 (http)
+2026-07-27 10:41:42.473 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-0.0.0.0-8081"]
+2026-07-27 10:41:42.479 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2026-07-27 10:41:42.481 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.55]
+2026-07-27 10:41:42.736 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-07-27 10:41:42.738 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3165 ms
+2026-07-27 10:41:42.954 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-07-27 10:41:43.269 [main] INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@299a43d9
+2026-07-27 10:41:43.272 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-07-27 10:41:44.095 [main] WARN  com.baomidou.mybatisplus.core.injector.DefaultSqlInjector - class com.xiaoma.server.entity.admin.SysRoleDept ,Not found @TableId annotation, Cannot use Mybatis-Plus 'xxById' Method.
+2026-07-27 10:41:44.135 [main] WARN  com.baomidou.mybatisplus.core.injector.DefaultSqlInjector - class com.xiaoma.server.entity.admin.SysRoleMenu ,Not found @TableId annotation, Cannot use Mybatis-Plus 'xxById' Method.
+2026-07-27 10:41:44.201 [main] WARN  com.baomidou.mybatisplus.core.injector.DefaultSqlInjector - class com.xiaoma.server.entity.admin.SysUserRole ,Not found @TableId annotation, Cannot use Mybatis-Plus 'xxById' Method.
+2026-07-27 10:41:47.072 [main] INFO  com.xiaoma.server.config.MilvusConfig - Creating RetryableMilvusClient with retry cooldown 30000 ms
+2026-07-27 10:41:48.258 [main] INFO  com.xiaoma.server.config.ConfigValidator - [配置校验] 知识库配置校验完成
+2026-07-27 10:41:48.265 [main] INFO  com.xiaoma.server.service.kb.ChatClientRegistry - 已加载 ChatClient 策略: [siliconflow, qianwen]
+2026-07-27 10:41:48.270 [main] INFO  com.xiaoma.server.service.kb.EmbeddingClientRegistry - 已加载 EmbeddingClient 策略: [qianwen]
+2026-07-27 10:41:48.356 [main] INFO  com.xiaoma.server.service.kb.RerankClientRegistry - 已加载 RerankClient 策略: [siliconflow, qianwen]
+2026-07-27 10:41:48.844 [main] INFO  com.baomidou.mybatisplus.extension.spring.MybatisPlusApplicationContextAware - Register ApplicationContext instances org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@1d035be3
+2026-07-27 10:41:49.258 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-0.0.0.0-8081"]
+2026-07-27 10:41:49.274 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port 8081 (http) with context path '/'
+2026-07-27 10:41:49.294 [main] INFO  com.xiaoma.server.ServerApplication - Started ServerApplication in 10.78 seconds (process running for 12.581)
+2026-07-27 10:41:51.041 [http-nio-0.0.0.0-8081-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-07-27 10:41:51.042 [http-nio-0.0.0.0-8081-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-07-27 10:41:51.045 [http-nio-0.0.0.0-8081-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2026-07-27 10:41:51.646 [http-nio-0.0.0.0-8081-exec-2] INFO  com.xiaoma.server.service.AuthService - 用户登录成功: userId=2

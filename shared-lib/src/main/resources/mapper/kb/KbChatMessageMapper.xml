@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xiaoma.server.mapper.kb.KbChatMessageMapper">
+
+  <select id="selectPendingFeedback" resultType="java.util.HashMap">
+    SELECT
+      m.id,
+      m.session_id AS sessionId,
+      m.content AS answer,
+      m.use_local AS useLocal,
+      m.confidence,
+      m.feedback,
+      m.write_back_status AS writeBackStatus,
+      m.created_at AS createdAt,
+      (SELECT content FROM kb_chat_message WHERE session_id = m.session_id AND role = 'user' AND id &lt; m.id ORDER BY id DESC LIMIT 1) AS question
+    FROM kb_chat_message m
+    WHERE m.role = 'assistant'
+      AND m.write_back_status = #{status}
+    ORDER BY m.id DESC
+  </select>
+
+</mapper>

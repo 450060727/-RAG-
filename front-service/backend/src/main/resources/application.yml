@@ -1,0 +1,23 @@
+spring:
+  config:
+    import: classpath:application-shared.yml
+  application:
+    name: xiaoma-front
+
+  mail:
+    # SMTP 服务器配置，通过环境变量注入；缺省为阿里云企业邮示例
+    host: ${MAIL_HOST:smtp.qiye.aliyun.com}
+    port: ${MAIL_PORT:465}
+    # 邮箱账号与授权码：必须走环境变量 MAIL_USERNAME / MAIL_PASSWORD
+    # 未配置时验证码将打印到后端日志（dev 兜底）
+    username: ${MAIL_USERNAME:}
+    password: ${MAIL_PASSWORD:}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          ssl:
+            enable: true
+
+server:
+  port: 8081

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xiaoma.server.mapper.UserMapper">
+
+    <resultMap id="BaseResultMap" type="com.xiaoma.server.entity.User">
+        <id column="id" property="id"/>
+        <result column="email" property="email"/>
+        <result column="password" property="password"/>
+        <result column="name" property="name"/>
+        <result column="status" property="status"/>
+        <result column="created_at" property="createdAt"/>
+        <result column="updated_at" property="updatedAt"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id, email, password, name, status, created_at, updated_at
+    </sql>
+
+    <select id="selectByEmail" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM `user`
+        WHERE email = #{email}
+        LIMIT 1
+    </select>
+
+    <select id="existsByEmail" resultType="boolean">
+        SELECT COUNT(*) > 0
+        FROM `user`
+        WHERE email = #{email}
+    </select>
+
+    <update id="updateNameById">
+        UPDATE `user`
+        SET name = #{name}
+        WHERE id = #{id}
+    </update>
+
+    <update id="updatePasswordById">
+        UPDATE `user`
+        SET password = #{password}
+        WHERE id = #{id}
+    </update>
+</mapper>

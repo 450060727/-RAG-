@@ -1,0 +1,48 @@
+spring:
+  datasource:
+    url: ${DB_URL:jdbc:mysql://127.0.0.1:3306/xiaoma?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&useSSL=false&allowPublicKeyRetrieval=true}
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  sql:
+    init:
+      # 每次启动执行 schema.sql（含 IF NOT EXISTS，幂等）
+      mode: always
+  data:
+    redis:
+      host: ${REDIS_HOST:127.0.0.1}
+      port: ${REDIS_PORT:6379}
+      password: ${REDIS_PASSWORD:}
+      database: ${REDIS_DB:0}
+      timeout: 2000ms
+      lettuce:
+        pool:
+          max-active: 8
+          max-idle: 8
+          min-idle: 0
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 200MB
+
+mybatis-plus:
+  mapper-locations: classpath:mapper/**/*.xml
+  type-aliases-package: com.xiaoma.server.entity
+  configuration:
+    map-underscore-to-camel-case: true
+    # MyBatis SQL 输出到控制台（开发调试），生产环境建议关闭或改用文件
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+app:
+  jwt:
+    # JWT 签名密钥：优先读环境变量 JWT_SECRET，未配置时使用本地开发默认值
+    secret: ${JWT_SECRET:abcdefghijklmnopqrstuvwxyz123456}
+    # token 过期时间：优先读环境变量 JWT_EXPIRE_MINUTES，默认 1440 分钟（1 天）
+    expire-minutes: ${JWT_EXPIRE_MINUTES:1440}
+
+kb:
+  upload:
+    path: ${KB_UPLOAD_PATH:./uploads/knowledge}
+    max-file-size: 100MB
+    max-request-size: 200MB
+    allowed-mime-types: text/plain,text/markdown,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,image/jpeg,image/png,image/webp,audio/mpeg,audio/wav,audio/mp4,video/mp4,video/x-matroska
